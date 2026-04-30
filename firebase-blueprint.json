@@ -1,44 +1,59 @@
 {
   "entities": {
-    "Product": {
-      "title": "Tea Product",
-      "description": "Details of a tea drink or item available for order.",
+    "Category": {
+      "title": "Category",
+      "description": "Product categories like Pure Tea, Milk Tea, etc.",
       "type": "object",
       "properties": {
-        "id": { "type": "string" },
         "name": { "type": "string" },
-        "description": { "type": "string" },
-        "price": { "type": "number" },
-        "category": { "type": "string" },
-        "imageUrl": { "type": "string" },
-        "available": { "type": "boolean" },
-        "createdAt": { "type": "string", "format": "date-time" }
+        "englishName": { "type": "string" },
+        "order": { "type": "number" }
       },
-      "required": ["name", "price", "category", "available"]
+      "required": ["name", "order"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Individual tea items",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "englishName": { "type": "string" },
+        "categoryId": { "type": "string" },
+        "priceM": { "type": "number" },
+        "priceL": { "type": "number" },
+        "isPopular": { "type": "boolean" },
+        "isHot": { "type": "boolean" },
+        "description": { "type": "string" },
+        "image": { "type": "string" }
+      },
+      "required": ["name", "categoryId"]
     },
     "Order": {
-      "title": "Customer Order",
-      "description": "Record of a purchase made by a customer.",
+      "title": "Order",
+      "description": "Customer tea orders",
       "type": "object",
       "properties": {
-        "id": { "type": "string" },
-        "customerName": { "type": "string" },
         "items": { "type": "array" },
         "total": { "type": "number" },
         "status": { "type": "string", "enum": ["pending", "preparing", "completed", "cancelled"] },
+        "customerName": { "type": "string" },
         "createdAt": { "type": "string", "format": "date-time" }
       },
       "required": ["items", "total", "status", "createdAt"]
     }
   },
   "firestore": {
+    "categories": {
+      "schema": "Category",
+      "description": "Collection of product categories"
+    },
     "products": {
       "schema": "Product",
-      "description": "Menu items for the tea shop."
+      "description": "Collection of tea products"
     },
     "orders": {
       "schema": "Order",
-      "description": "Customer orders history."
+      "description": "Collection of customer orders"
     }
   }
 }
