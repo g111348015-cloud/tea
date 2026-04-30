@@ -1,6 +1,6 @@
 {
-  "name": "UG",
-  "description": "A sophisticated tea ordering system with a customer frontend and admin backend management, powered by Firebase.",
+  "name": "WooTea Ordering System",
+  "description": "A stylish tea shop ordering system with frontend menu and backend order management, inspired by WooTea aesthetics.",
   "requestFramePermissions": [],
   "majorCapabilities": []
 }
