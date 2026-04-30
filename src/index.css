@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Theme Colors */
+  --color-brand: #5A7247;
+  --color-brand-light: #F1F3E9;
+  --color-brand-border: #DCE2CD;
+  --color-surface: #F9FAF7;
+  --color-border: #E8EAE0;
+  --color-border-light: #F0F2EA;
+  --color-text-main: #2D332A;
+  --color-text-muted: #8C947F;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-text-main font-sans antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand text-white px-6 py-3 rounded-2xl hover:opacity-90 transition-all font-bold shadow-lg shadow-brand/10 disabled:opacity-50;
+  }
+
+  .card-bento {
+    @apply bg-white border border-border rounded-3xl p-6 transition-all duration-300 hover:shadow-lg;
+  }
+
+  .nav-link {
+    @apply text-sm font-medium text-text-muted hover:text-brand transition-colors px-4 py-1.5 rounded-md;
+  }
+
+  .nav-link-active {
+    @apply bg-white shadow-sm text-text-main;
+  }
+}
